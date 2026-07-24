@@ -1355,6 +1355,7 @@
     .nav-links.active { transform: translateY(0); }
     .hero-editorial-frame { height: 42vh; min-height: 350px; }
     .hero-editorial-title {
-        font-size: clamp(12rem, 15vw, 5rem);
+        font-size: clamp(8rem, 12vw, 2.25rem);
+        -webkit-text-stroke: 1.25px var(--primary-accent);
     }
   }
