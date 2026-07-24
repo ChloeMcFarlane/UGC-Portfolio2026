@@ -2,12 +2,9 @@
    DESIGN SYSTEM & CORE VARIABLES
    ========================================================================== */
    @font-face {
-    .boldonse-regular {
-        font-family: "Boldonse", system-ui;
-        font-weight: 100;
-        font-style: normal;
-      }
-      
+    font-family: "Boldonse";
+    font-weight: 100;
+    font-style: normal;
   }
   
   :root {
@@ -61,22 +58,52 @@
   /* ==========================================================================
      GLOBAL CINEMATIC SCROLL REVEAL
      ========================================================================== */
-  .scroll-reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    filter: blur(8px);
-    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-                filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: opacity, transform, filter;
-  }
-  
-  .scroll-reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
-  
+     .scroll-reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        filter: blur(8px);
+        transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                    filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: opacity, transform, filter;
+      }
+      
+      .scroll-reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+      
+      .fade-up-item {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: opacity, transform;
+      }
+      
+      .scroll-reveal.is-visible .delay-1 {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0ms;
+      }
+      
+      .scroll-reveal.is-visible .delay-2 {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 700ms;
+      }
+      
+      .scroll-reveal.is-visible .delay-3 {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 1500ms, 1500ms; /* Delay opacity & transform only */
+      }
+
+      .btn-contact-launch {
+        transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        transition-delay: 0s !important; 
+      }
   /* ==========================================================================
      STICKY NAVIGATION
      ========================================================================== */
@@ -100,7 +127,7 @@
   .nav-logo {
     font-family: var(--font-serif);
     font-size: 1.5rem;
-    font-weight: 400;
+    font-weight: 700; /* Updated to 700 weight */
     letter-spacing: 0.08em;
     color: var(--text-body);
     font-style: italic;
@@ -248,9 +275,9 @@
       transform: translateX(-50%) translateY(0);
     }
   }
-
+  
   /* Instagram Handle Subtitle under Hero Title */
-.hero-editorial-subtitle {
+  .hero-editorial-subtitle {
     position: absolute;
     bottom: 22%;
     left: 50%;
@@ -263,7 +290,7 @@
     z-index: 4; /* Layers in front of hero overlay and image */
     pointer-events: auto;
     animation: subtitleFloatUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-delay: 550ms; /* Sequence float right after main CHLOE title */
+    animation-delay: 550ms; /* Sequence float right after main title */
   }
   
   @keyframes subtitleFloatUp {
@@ -277,7 +304,7 @@
     }
   }
   
-  /* Hero Info Row (Triggers 250ms AFTER title finishes: 350ms + 900ms + 250ms = 1500ms delay) */
+  /* Hero Info Row */
   .hero-info-row {
     display: flex;
     justify-content: space-between;
@@ -466,7 +493,7 @@
     position: absolute;
     height: 95%;
     inset: 0;
-    background: rgba(243, 236, 231, 0.38); /* Softened from 0.72 */
+    background: rgba(243, 236, 231, 0.38);
     backdrop-filter: blur(14px) saturate(120%);
     -webkit-backdrop-filter: blur(14px) saturate(120%);
     display: flex;
@@ -550,12 +577,12 @@
     margin-top: 0.2rem;
     font-style: italic;
   }
-
-/* ==========================================================================
-   CONFIDENTIAL CREATIVE DOSSIER
-   ========================================================================== */
-
-   .dossier-section {
+  
+  /* ==========================================================================
+     CONFIDENTIAL CREATIVE DOSSIER
+     ========================================================================== */
+  
+  .dossier-section {
     position: relative;
     background-color: #fcfaf7;
     color: #2b2623;
@@ -584,7 +611,7 @@
   }
   
   .dossier-title {
-    font-family: var(--font-serif)
+    font-family: var(--font-serif);
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 400;
     line-height: 1.1;
@@ -598,7 +625,7 @@
   }
   
   .dossier-subtitle {
-    font-family: var(--font-sans)
+    font-family: var(--font-sans);
     font-size: 1rem;
     color: #615750;
     margin: 0;
@@ -689,7 +716,7 @@
   }
   
   .dossier-subject-name {
-    font-family: 'Instrument Serif', serif;
+    font-family: var(--font-serif);
     font-size: 1.75rem;
     margin: 0;
     color: #2b2623;
@@ -701,7 +728,7 @@
     margin: 0.25rem 0 0 0;
   }
   
-  /* Restored Hotspots (Frosted Hotspot Styling) */
+  /* Restored Hotspots */
   .dossier-hotspot {
     position: absolute;
     z-index: 10;
@@ -788,7 +815,7 @@
   }
   
   .dossier-quote {
-    font-family: 'Instrument Serif', serif;
+    font-family: var(--font-serif);
     font-size: 1.5rem;
     line-height: 1.4;
     color: #2b2623;
@@ -828,7 +855,7 @@
   }
   
   .attribute-val {
-    font-family: 'Instrument Serif', serif;
+    font-family: var(--font-serif);
     font-size: 1.1rem;
     color: #2b2623;
   }
@@ -868,7 +895,7 @@
   }
   
   .bento-num {
-    font-family: 'Instrument Serif', serif;
+    font-family: var(--font-serif);
     font-size: 2.25rem;
     color: #2b2623;
     line-height: 1;
@@ -889,12 +916,13 @@
   }
   
   /* ==========================================================================
-   ABOUT SECTION: EDITORIAL MAGAZINE SPREAD
-   ========================================================================== */
-#about{
+     ABOUT SECTION: EDITORIAL MAGAZINE SPREAD
+     ========================================================================== */
+  #about {
     background-color: #2a211e;
-}
-.about-editorial-spread {
+  }
+  
+  .about-editorial-spread {
     padding-top: 8rem;
     padding-bottom: 8rem;
     border-top: 1px solid rgba(70, 53, 47, 0.12);
@@ -907,7 +935,7 @@
   }
   
   .about-editorial-title {
-    font-family: 'Instrument Serif', Georgia, serif;
+    font-family: var(--font-serif);
     font-size: clamp(3.2rem, 6.5vw, 6rem);
     font-weight: 400;
     letter-spacing: -0.02em;
@@ -947,9 +975,9 @@
     margin-bottom: 0;
   }
   
-  /* Category Headings: Small Uppercase with Tracking */
+  /* Category Headings */
   .about-block-title {
-    font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+    font-family: var(--font-sans);
     font-size: 0.72rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -957,7 +985,6 @@
     color: var(--bg-section);
     margin-bottom: 1.25rem;
     padding-bottom: 0.5rem;
-    color: var(--bg-section);
   }
   
   /* Information Lists & Content Blocks */
@@ -1128,6 +1155,7 @@
       grid-template-columns: repeat(4, 1fr);
     }
   }
+  
   /* ==========================================================================
      OTHER SECTIONS (CLEANED OF SHADOWS)
      ========================================================================== */
@@ -1239,7 +1267,6 @@
     color: var(--text-body);
     line-height: 1.6;
   }
-
   
   /* Footer Section */
   .footer-section {
@@ -1319,13 +1346,12 @@
       backdrop-filter: blur(25px);
       flex-direction: column;
       padding: 2.5rem;
-      gap: 1rem;
+      gap: 2.5rem;
       border-bottom: 1px solid var(--border-light);
       transform: translateY(-150%);
       transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
   
     .nav-links.active { transform: translateY(0); }
-    .hero-editorial-frame { height: 42vh; min-height: 280px; border-radius: 22px; }
-    .hero-editorial-title { font-size: clamp(10.5rem, 50vw, 10rem); }
+    .hero-editorial-frame { height: 42vh; min-height: 350px; }
   }
