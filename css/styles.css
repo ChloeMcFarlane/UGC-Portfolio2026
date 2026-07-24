@@ -1322,7 +1322,7 @@
   @media (max-width: 1024px) {
     .work-editorial-spread { flex-direction: column; gap: 2rem; }
     .work-heading-column { flex: none; border-right: none; border-bottom: 1px solid var(--border-light); padding-right: 0; padding-bottom: 1.5rem; justify-content: flex-start; }
-    .work-vertical-title { writing-mode: horizontal-tb; transform: none; font-size: 3rem; }
+    .work-vertical-title { writing-mode: horizontal-tb; transform: none; font-size: 2rem; }
     .campaign-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     
     .hero-section { padding: 5.2rem 1.5rem 2rem; }
@@ -1354,4 +1354,7 @@
   
     .nav-links.active { transform: translateY(0); }
     .hero-editorial-frame { height: 42vh; min-height: 350px; }
+    .hero-editorial-title {
+        font-size: clamp(12rem, 15vw, 5rem);
+    }
   }
