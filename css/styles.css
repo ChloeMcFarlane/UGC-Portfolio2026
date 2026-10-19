@@ -486,6 +486,19 @@
     object-fit: cover;
     border-radius: 36px;
     display: block;
+    pointer-events: none; /* video can't be clicked/paused by the user */
+  }
+
+  /* Hide every native play button / control the browser may inject */
+  .iphone-video::-webkit-media-controls,
+  .iphone-video::-webkit-media-controls-panel,
+  .iphone-video::-webkit-media-controls-play-button,
+  .iphone-video::-webkit-media-controls-start-playback-button,
+  .iphone-video::-webkit-media-controls-overlay-play-button,
+  .iphone-video::-webkit-media-controls-enclosure {
+    display: none !important;
+    opacity: 0 !important;
+    -webkit-appearance: none;
   }
   
   /* Frosted Glass Floating Analytics Overlay */
